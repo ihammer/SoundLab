@@ -1,0 +1,110 @@
+/*css重置*/
+
+html {
+    /*rem 根节点*/
+    font-size: 62.5%
+}
+*,
+::before,
+::after{
+    /*选择所有的标签 */
+    margin: 0;
+    padding: 0;
+
+    /*清除移动端默认的 点击高亮效果*/
+    -webkit-tap-highlight-color: transparent;
+    /*设置所有的都是以边框开始计算宽度  百分比*/
+    -webkit-box-sizing: border-box;/*兼容*/
+    box-sizing: border-box;
+}
+body{
+    font: 1.2rem "MicroSoft YaHei";
+    /*font-size:;*/
+    /*font-family: "MicroSoft YaHei",sans-serif;/!*设备默认字体*!/*/
+    color: #333;
+}
+h2 {
+    font-family: "MicroSoft YaHei";
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+ul,ol{
+    list-style: none;
+}
+input{
+    border: none;
+    outline: none;
+    /*清楚移动端默认的表单样式*/
+    -webkit-appearance: none;
+}
+
+/* common css */
+/*主体盒子*/
+.r_layout {
+    width: 100%;
+    max-width: 750px;
+    min-width: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+.f_left{
+    float: left;
+}
+.f_right{
+    float: right;
+}
+.clearfix::before,
+.clearfix::after{
+    content: "";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+.middle {
+    margin: 0 20px;
+    padding-bottom: 17px;
+}
+.m15 {
+    margin: 0 15px;
+    padding-top: 35px
+}
+/*footer*/
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    background-color: #F6F6F6;
+    padding: 10px 0;
+    width: 100%;
+    height: 65px;
+}
+footer .download {
+    margin-top: 5px;
+    display: block;
+    width: 100px;
+    height: 36px;
+    background-color: black;
+    text-align: center;
+    border-radius: 36px;
+}
+footer .download a {
+    font:900 1.5rem "MicroSoft YaHei";
+    color: white;
+    line-height: 36px;
+}
+
+/*声明字体*/
+@font-face {font-family: 'iconfont';
+    src: url('../font/iconfont.eot'); /* IE9*/
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}

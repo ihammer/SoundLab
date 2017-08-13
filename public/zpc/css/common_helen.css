@@ -1,0 +1,87 @@
+/*导航栏
+--------------------*/
+body{
+    background-color: #7590b8;
+    background: rgba(0, 0, 0, 0.0);
+}
+textarea{
+    resize:none;
+}
+.half-background{
+    background-color: #eeeeee;
+    background-position: fixed;
+    width: 100%;
+    height: 100%;
+    position: fixed;/*固定位置 wx 15.2.9*/
+    top:0;
+}
+
+/*导航
+------------------*/
+.navbar {
+    background: #ffffff url('../images/lab2.png') no-repeat right -10px ;
+    /*background: #ffffff;*/
+    /*background: #ffffff;*/
+    background-size: 30%;
+    border-radius: 0;
+    border: none;
+    /*margin-bottom: 0;*/
+    min-height: 80px;
+    border-bottom:1px solid #d9d9d9;
+    padding-top: 3px;
+}
+.navbar-toggle {
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+.navbar-brand {
+    padding: 8px 15px;
+    height: 70px;
+    width: 267px;
+}
+.navbar-brand img {
+    width: 23%;
+    float: left;
+}
+
+.navbar-brand .logo_font{
+    width:60%;
+    margin-left: 20px;
+    margin-top:4px;
+}
+.main{
+    /*position:relative;*/
+    /*padding-top: 150px;*/
+}
+/*页脚
+-------------------*/
+.footer {
+    height:40px;
+    line-height: 40px;
+    color: #ffffff;
+    margin-top: 35px;
+    font-size: 0.857em;
+    width: 100%;
+    position: relative;
+    bottom: -10;
+    background:#000;
+}
+
+
+/*字体图标
+-------------------*/
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.eot'); /* IE9*/
+    src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont.svg#uxiconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}

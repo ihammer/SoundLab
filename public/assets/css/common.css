@@ -1,0 +1,32 @@
+/*导航栏
+--------------------*/
+body{
+    background-color: #7590b8;
+}
+.half-background{
+    background-color: #c8e1c5;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top:0;
+}
+
+.navbar {
+    background-color: #3f3b3a;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
+    min-height: 70px;
+}
+.navbar-toggle {
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+.navbar-brand {
+    padding: 8px 15px;
+    height: 70px;
+    width: 267px;
+}
+.navbar-brand img {
+    width: 100%;
+}

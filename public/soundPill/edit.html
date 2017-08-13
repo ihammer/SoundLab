@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<title>编辑</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/edit.css">
+
+
+<!-- HTML5 shim 让IE9或者更低版本的 IE 浏览器支持 HTML5和媒体查询 -->
+<!-- 主意: 使用file://浏览页面时 Respond.js 无法正常运行  -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.js"></script>
+    <![endif]-->
+
+<body >
+    <div class="half-background"></div>
+    <!-- <div class="pill-bg"></div> -->
+    <div class="mask"></div>
+    <!-- 导航条 -->
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo_2x.jpg" alt="Brand">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- /导航条 -->
+
+    <!-- 编辑页面 -->
+    <div class="edit clearfix">
+        <!-- 速率控制条 -->
+        <div class="speed-slider">
+            <!-- 刻度条 -->
+            <div class="label">
+                <p>3.0</p>
+                <p>2.5</p>
+                <p>2.0</p>
+                <p>1.5</p>
+                <p>1.0</p>
+            </div>
+            <!-- 滑动条 -->
+            <div class="slider">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="thumb"></div>
+            </div>
+        </div> <!--/速率控制条 -->
+        
+        <!-- 主显示区域 -->
+        <div class="show-box">
+            <!-- 图片显示区域 -->
+            <div class="stage">
+                <!-- <div class="image-box"></div> -->
+                <canvas id="image-canvas" width="522" height="522"></canvas>
+            </div>
+            
+            <!-- 播放进度控制条 -->
+            <div class="controller">
+                <div class="btns">
+                    <i class="iconfont icon icon-play active" data-action="play">&#xe600;</i>
+                    <i class="iconfont icon icon-pause " data-action="pause">&#xe607;</i>
+                </div>
+                <!-- 波形 -->
+                <div class="wave-bar" id="waveform-container">
+                    <!-- <canvas id="waveform-canvas" width="480px" height="60px"></canvas> -->
+                </div>
+            </div><!-- /播放进度控制条 -->
+            <span class="time">02:03/05:00</span>
+            <a href="" class="btn addText">
+                <i class="iconfont icon icon-editText ">&#xe60d;</i> 添加
+            </a>
+        </div><!-- /主显示区域 -->
+
+        <!-- 滤镜效果选择 -->
+        <div class="filter">
+            <div class="filter-thumbnail"></div>
+            <div class="filter-thumbnail"></div>
+            <div class="filter-thumbnail"></div>
+            <div class="filter-thumbnail"></div>
+            <div class="filter-thumbnail"></div>
+        </div><!--/滤镜效果选择 -->
+
+    </div>
+
+
+
+    <!-- footer -->
+    <footer class="footer text-center">
+        <p>©2015 北京灵犀一点文化科技有限公司 - 京ICP证123456号 - 京公网安备12345678901234号</p>
+    </footer>
+    <!-- script -->
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/wavesurfer.min.js"></script>
+            <!-- wavesurfer.js -->
+       <!--  <script src="vendor/wavesurfer.js-master/src/wavesurfer.js"></script>
+        <script src="vendor/wavesurfer.js-master/src/webaudio.js"></script>
+        <script src="vendor/wavesurfer.js-master/src/audioelement.js"></script>
+        <script src="vendor/wavesurfer.js-master/src/drawer.js"></script>
+        <script src="vendor/wavesurfer.js-master/src/drawer.canvas.js"></script> -->
+
+    <script type="text/javascript" src="js/edit.js"></script>
+
+</body>
+
+</html>

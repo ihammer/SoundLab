@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/files/workspace/var/www/capsule2/app/database/seeds/DatabaseSeeder.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/database/production.sqlite</file>
+            <file>file:/files/workspace/var/www/capsule2/app/views/admin/index.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/sms.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/mobile.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/permissions.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/session.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/app.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/controllers/BaseController.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/controllers/UtagController.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/auth.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/mail.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/qiniu.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/database.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/queue.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/controllers/AdminController.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/local/database.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/capsule/Api/Actions/Huanxin.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/capsule/Api/Actions/Audios/Index.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/local/app.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/routes.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/capsule/Api/Actions/Orders/Goods.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/controllers/WorkController.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/controllers/TestController.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/controllers/AuthController.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/services.php</file>
+            <file>file:/files/workspace/var/www/capsule2/vendor/laravel/framework/src/Illuminate/Support/helpers.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/routes.api.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/view.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/models/Workimage.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/capsule/Api/Actions/Base.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/remote.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/storage/views/4f4f14ede7c81335f3659c661cce39c2</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/workbench.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/config/compile.php</file>
+            <file>file:/files/workspace/var/www/capsule2/app/filters.php</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>个人主页</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/upload.css">
+    <link rel="stylesheet" href="css/myself.css">
+    <!-- HTML5 shim 让IE9或者更低版本的 IE 浏览器支持 HTML5和媒体查询 -->
+    <!-- 主意: 使用file://浏览页面时 Respond.js 无法正常运行  -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/webuploader.js"></script>
+    <script type="text/javascript" src="js/wavesurfer.min.js"></script><!-- 波形图 -->
+
+    <script type="text/javascript" src="js/draw.canvas.mycanvas.js"></script>
+    <script type="text/javascript" src="js/myplayer.js"></script>
+    <script type="text/javascript" src="js/imageAnimate.js"></script>
+    <script type="text/javascript" src="js/StackBlur.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(function(){
+            var $ro=$('.right_opus');
+            getMoreOpus($ro);
+        });
+    </script>
+</head>
+
+<body>
+    <div id="half-background" class="half-background"></div>
+
+    <!-- 导航条 -->
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo_2x.jpg" alt="Brand">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- /导航条 -->
+
+    <div class="main_myhome">
+        <div class="main_warp_user">
+            <div class="user_left">
+                <div class="user_face">
+                    <img class="user_face_img" src="images/a/user_face.jpg" />
+                </div>
+                <div class="user_info">
+                    <div class="user_name" id="user_name">
+                        尧十三
+                        <span>男 北京</span>
+                    </div>
+                    <div class="user_intro" id="user_intro">国内著名民谣歌手 麻油叶组织创始人</div>
+                    <div class="user_counts">
+                        <div class="count_box">
+                            <p>34</p>
+                            <p>关注</p>
+                        </div>
+                        <div class="count_line"></div>
+                        <div class="count_box">
+                            <p>94</p>
+                            <p>粉丝</p>
+                        </div>
+                        <div class="count_line"></div>
+                        <div class="count_box">
+                            <p>4</p>
+                            <p>作品</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_right">
+                <a href="upload.html"><span>+</span>发布</a>
+            </div>
+        </div>
+        <div class="main_warp ismy">
+            <!-- 左侧播放器 -->
+            <div class="left_warp_player">
+                <div class="stage" id="stage"></div>
+                <div class="sound_title_bar" id="sound_title_bar">
+                    <div id="sound_title" class="sound_title">在他乡</div>
+                    <div id="sound_tag" class="sound_tag">tag：<span>民 谣</span> <span>午 后</span></div>
+                </div>
+                <div class="sound_player">
+                    <div class="player_btns" id="player_btns">
+                        <i class="iconfont icon active" id="icon-play">&#xe600;</i>
+                        <i class="iconfont icon" id="icon-pause">&#xe607;</i>
+                    </div>
+                    <div class="wave_warp">
+                        <!-- 波形 -->
+                        <div class="wave-bar" id="waveform-container">
+                            <!-- 加载进度 -->
+                            <div class="progress progress-striped active" id="progress-bar">
+                                <div class="progress-bar progress-bar-info"></div>
+                            </div>
+                        </div>
+                        <!-- 时间 -->
+                        <div class="palyer_time" id="time">00:00/00:00</div>
+                    </div>
+                </div>
+            </div>
+            <!-- /左侧播放器 -->
+            <!-- 右侧下载信息 -->
+            <div class="right_warp_info">
+                <div class="right_warp">
+                    <div class="right_opus" id="right_opus"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer text-center">
+        <p>©2015 北京灵犀一点文化科技有限公司 - 京ICP证123456号 - 京公网安备12345678901234号</p>
+    </footer>
+</body>
+
+</html>

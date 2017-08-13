@@ -1,0 +1,16 @@
+
+/*编辑页
+------------------------*/
+body{
+	background-attachment: fixed;
+}
+.half-background{
+	background-color: #c8e1c5;
+	width: 50%;
+	height: 100%;
+	position: absolute;
+}
+
+.modal-backdrop{
+	top:70px;
+}

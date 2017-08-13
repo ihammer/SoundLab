@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>后台管理系统</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="/css/uniform.css" />
+<link rel="stylesheet" href="/css/select2.css" />
+<link rel="stylesheet" href="/css/matrix-style.css" />
+<link rel="stylesheet" href="/css/matrix-media.css" />
+<link href="/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href='http://fonts.useso.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<!--Header-part-->
+<div id="header">
+  <h1>后台管理系统</h1>
+</div>
+<div id="user-nav" class="navbar navbar-inverse">
+  <ul class="nav">
+    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">管理员<?php echo $_SESSION["admin"]; ?>,您好</span><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="password"><i class="icon-user"></i> 修改密码</a></li>
+        <li class="divider"></li>
+        <li class="divider"></li>
+        <li><a href="logout"><i class="icon-key"></i> 退出</a></li>
+      </ul>
+    </li>
+    <li class=""><a title="" href="logout"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+  </ul>
+</div>
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li><a href="admin"><i class="icon icon-home"></i> <span>首页</span></a> </li>
+    <li class="submenu"><a href="#"><i class="icon icon-inbox"></i> <span>用户</span></a>
+	  <ul>
+        <li>{{ link_to_route('123xxxadmin.user.index', '用户列表') }}</li>
+        <li>{{ link_to_route('123xxxadmin.user.create', '添加用户') }}</li>
+      </ul>
+	</li>
+    <li class="active submenu open"><a href="#"><i class="icon icon-th-list"></i> <span>作品</span></a>
+	  <ul>
+        <li>{{ link_to_route('123xxxadmin.opus.index', '作品列表') }}</li>
+        <li>{{ link_to_route('123xxxadmin.opus.create', '上传作品') }}</li>
+      </ul>
+	</li>
+    <!--li class="submenu"><a href="#"><i class="icon icon-th"></i> <span>专题</span></a>
+	  <ul>
+        <li>{{ link_to_route('123xxxadmin.topic.index', '专题列表') }}</li>
+        <li>{{ link_to_route('123xxxadmin.topic.create', '添加专题') }}</li>
+      </ul>
+	</li-->
+    <li class="submenu"><a href="#"><i class="icon icon-pencil"></i> <span>标签</span></a>
+	  <ul>
+        <li>{{ link_to_route('123xxxadmin.tag.index', '标签列表') }}</li>
+        <li>{{ link_to_route('123xxxadmin.utag.index', '人物标签') }}</li>
+        <!-- <li>{{ link_to_route('123xxxadmin.tag.create', '添加标签') }}</li> -->
+      </ul>
+	</li>
+	<li class="submenu"><a href="#"><i class="icon icon-th"></i> <span>帮助</span></a>
+    <ul>
+        <li>{{ link_to_route('123xxxadmin.helps.index', '帮助列表') }}</li>
+      </ul>
+  </li>
+  </ul>
+</div><div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 首页</a> <a href="#" class="current">作品</a> </div>
+    <h1>作品</h1>
+  </div>
+  <div class="container-fluid">
+  	<span><a href="/123xxxadmin/opus/newlist">最新作品列表</a>&nbsp;<a href="/123xxxadmin/opus<?php echo $labx==0 ? "?labx=1" : "";?>"><?php echo $labx==0 ? "LabX列表" : "所有作品";?></a></span>
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-user"></i></span>
+            <h5>作品列表</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>作品名称</th>
+                  <th>用户名称</th>
+                  <?php echo $labx==1 ? "" : "<th>私有公开</th>";?>
+                  <?php echo $labx==1 ? "<th>LabX分类</th>" : "";?>
+                  <th>上传时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+			  <?php
+			  
+			  foreach($models as $key=>$items){
+			  ?>
+                <tr>
+                  <td>
+                  <?php echo $items->title;?>
+   					<a target="_blank" style="color:green;text-decoration:underline;"  href="http://v.t.sina.com.cn/share/share.php?url=<?php echo 'http://pillele.cn/play.php?id='.$items->id; ?>&amp;title='<?php echo $items->title;?>'&amp;pic=<?php echo 'http://7xikb7.com1.z0.glb.clouddn.com/'.$items->cover;?>">分享到新浪微博</a>
+                  </td>
+                  <td><?php echo $items->uname;?></td>
+                  <?php if($labx!=1){?><td><?php echo $items->is_private==0 ? "公开" : "私有";?></td><?php } ?>
+                  <?php echo $labx==1 ? "<td>".($items->type_id==0 ? 0 : $labtype[$items->type_id])."</td>" : "";?>
+                  <td><?php echo $items->created_at;?></td>
+				  <td style="text-align:center;">
+                                  <?php if($items->is_hpbanner==1){echo "<span class='ishpbanner' id='".$items->id."' onclick='Javascript:return recommendBut.call(this);' style='cursor:pointer;'>取消推荐首页banner</span>";}else{echo "<span class='ishpbanner' id='".$items->id."' onclick='Javascript:recommendBut.call(this);' style='cursor:pointer;'>首页banner推荐</span>";}?>&nbsp;&nbsp;
+
+				  	<?php if($items->is_recommend==1){echo "<span class='isrecommend' id='".$items->id."' onclick='Javascript:return recommendBut.call(this);' style='cursor:pointer;'>取消推荐</span>";}else{echo "<span class='isrecommend' id='".$items->id."' onclick='Javascript:recommendBut.call(this);' style='cursor:pointer;'>首页推荐</span>";}?>&nbsp;&nbsp;
+				  	<?php if($items->is_musician==1){echo "<span onclick='Javascript:musicianBut.call(this);' workid='".$items->id."' style='cursor:pointer;'>音乐人曲目(OUT)</span>";}else{echo "<span onclick='Javascript:musicianBut.call(this);' workid='".$items->id."' style='cursor:pointer;'>音乐人曲目(IN)</span>";}?>&nbsp;&nbsp;
+				  	<?php if($items->is_contshow==1){echo "<span onclick='Javascript:contentBut.call(this);' workid='".$items->id."' style='cursor:pointer;'>内容推荐(OUT)</span>";}else{echo "<span onclick='Javascript:contentBut.call(this);' workid='".$items->id."' style='cursor:pointer;'>内容推荐(IN)</span>";}?>&nbsp;&nbsp;
+				  	<?php if($items->is_compshow==1){
+				  		echo "<span onclick='Javascript:compaignBut.call(this);' workid='".$items->id."' style='cursor:pointer;'>LabX推荐(OUT)</span>";
+				  		if($items->is_compshowtype==1){
+				  			echo "<span onclick='Javascript:compaigntypeBut.call(this);' workid='".$items->id."' style='cursor:pointer;'>LabX分类推荐(OUT)</span>";
+				  		}else{
+				  			echo "<span onclick='Javascript:compaigntypeBut.call(this);' workid='".$items->id."' style='cursor:pointer;'>LabX分类推荐(IN)</span>";
+				  		}
+				  	}else{
+				  		echo "<span onclick='Javascript:compaignBut.call(this);' workid='".$items->id."' style='cursor:pointer;'>LabX推荐(IN)</span>";
+				  	}?>&nbsp;&nbsp;
+				  		<span onclick='Javascript:tagBut.call(this);' workid='<?php echo $items->id;?>' style='cursor:pointer;'>编辑标签</span>&nbsp;&nbsp;<span onclick='Javascript:pushBut.call(this);' workid='<?php echo $items->id;?>' style='cursor:pointer;'>推送曲目</span>
+				  	&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="del_confirm(<?php echo $items->id; ?>);">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/123xxxadmin/opus/<?php echo $items->id; ?>/edit">编辑</a--></td>
+					  	<?php  if($applylabx==1){ ?>
+                          <a href="/123xxxadmin/opus/<?php echo $items->id; ?>/edit">LABx审核</a>
+                       <?php }else{ ?>
+                          <a href="/123xxxadmin/opus/<?php echo $items->id; ?>/edit">编辑</a>
+                      <?php }?>
+					  	
+                </tr>
+			  <?php
+			  }
+			  ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Footer-part-->
+<div class="row-fluid">
+  <div id="footer" class="span12">©2015 北京灵犀一点文化科技有限公司 - 京ICP证123456号 - 京公网安备12345678901234号</div>
+</div>
+<div id="overlay">
+
+</div>
+<div class="alertsTag">
+	<div class="alert_tit">
+		编辑标签
+	</div>
+	<div class="content">
+		<table>
+			<tbody><tr>
+				<td width="100%" align="center">
+					<textarea id="tag" style="width:535px;height:200px"></textarea>
+					<input type="hidden" id="tagid" value="">
+				</td>
+			</tr>
+		</tbody></table>
+	</div>
+	<div class="buton" style="text-align:center;">
+		<input type="button" value="提交" id="subTag">&nbsp;&nbsp;<input type="button" id="resTag" value="返回">
+	</div>
+</div>
+<div class="alertsComp">
+	<div class="alert_tit">
+		LabX信息
+	</div>
+	<div class="content">
+		<table>
+			<tbody><tr>
+				<td width="100%" align="center">
+					LabX截止时间<input id="comptime" type="text">
+				</td>
+			</tr><tr>
+				<td width="100%" align="center">
+					LabX销售价格<input id="price" type="text">
+					<input type="hidden" id="compid" value="">
+				</td>
+			</tr>
+		</tbody></table>
+	</div>
+	<div class="buton" style="text-align:center;">
+		<input type="button" value="提交" id="subComp">
+	</div>
+</div>
+<div class="alertPush">
+	<div class="alert_tit">
+		推送曲目
+	</div>
+	<div class="content">
+		<table>
+			<tbody><tr>
+				<td width="100%" align="center">
+					<textarea id="pushcontent" style="width:535px;height:200px"></textarea>
+					<input type="hidden" id="pushid" value="">
+				</td>
+			</tr>
+		</tbody></table>
+	</div>
+	<div class="buton" style="text-align:center;">
+		<input type="button" value="提交" id="subPush">&nbsp;&nbsp;<input type="button" id="resPush" value="返回">
+	</div>
+</div>
+<div class="alerts">
+	<div class="alert_tit">
+		编辑推荐理由
+	</div>
+	<div class="content">
+		<table>
+			<tbody><tr>
+				<td width="100%" align="center">
+					<textarea id="reason" style="width:535px;height:200px"></textarea>
+					<input type="hidden" id="resid" value="">
+				</td>
+			</tr>
+		</tbody></table>
+	</div>
+	<div class="buton" style="text-align:center;">
+		<input type="button" value="提交" id="subButon">&nbsp;&nbsp;<input type="button" id="resButon" value="返回">
+	</div>
+</div>
+<!--end-Footer-part-->
+<style type="text/css">
+	#overlay {
+    background: #000;
+    filter: alpha(opacity=50); /* IE的透明度 */
+    opacity: 0.5;  /* 透明度 */
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100; /* 此处的图层要大于页面 */
+    display:none;
+	}
+	.alerts {
+width: 550px;
+display: none;
+min-height: 260px;
+border: 1px solid #cecece;
+position: fixed;
+left: 30%;
+top: 30%;
+z-index:150;
+background: #ffffff;
+}
+.alerts .alert_tit {
+width: 548px;
+height: 40px;
+background: #51a9f1;
+border: 1px solid #7dbef4;
+line-height: 40px;
+color: #ffffff;
+text-indent: 20px;
+}
+.alertsTag {
+width: 550px;
+display: none;
+min-height: 260px;
+border: 1px solid #cecece;
+position: fixed;
+left: 30%;
+top: 30%;
+z-index:150;
+background: #ffffff;
+}
+.alertsComp {
+width: 550px;
+display: none;
+min-height: 260px;
+border: 1px solid #cecece;
+position: fixed;
+left: 30%;
+top: 30%;
+z-index:150;
+background: #ffffff;
+}
+.alertsComp .alert_tit {
+width: 548px;
+height: 40px;
+background: #51a9f1;
+border: 1px solid #7dbef4;
+line-height: 40px;
+color: #ffffff;
+text-indent: 20px;
+}
+.alertsTag .alert_tit {
+width: 548px;
+height: 40px;
+background: #51a9f1;
+border: 1px solid #7dbef4;
+line-height: 40px;
+color: #ffffff;
+text-indent: 20px;
+}
+.alertPush {
+width: 550px;
+display: none;
+min-height: 260px;
+border: 1px solid #cecece;
+position: fixed;
+left: 30%;
+top: 30%;
+z-index:150;
+background: #ffffff;
+}
+.alertPush .alert_tit {
+width: 548px;
+height: 40px;
+background: #51a9f1;
+border: 1px solid #7dbef4;
+line-height: 40px;
+color: #ffffff;
+text-indent: 20px;
+}
+</style>
+<script src="/js/jquery.min.js"></script> 
+<script src="/js/jquery.ui.custom.js"></script> 
+<script src="/js/bootstrap.min.js"></script> 
+<script src="/js/jquery.uniform.js"></script> 
+<script src="/js/select2.min.js"></script> 
+<script src="/js/jquery.dataTables2.min.js"></script> 
+<script src="/js/matrix.js"></script> 
+<script src="/js/matrix.tables.js"></script>
+<script type="text/javascript">
+	function tagBut(){
+		var id=$(this).attr("workid");
+		$("#tagid").val($(this).attr("workid"));
+		$.get("/123xxxadmin/getWorkTag?id="+id,function(data){
+			$("#tag").val(data);
+		});
+		$("#overlay").height(document.body.scrollHeight);
+		$("#overlay").width(document.body.scrollWidth);
+		$("#overlay").fadeTo(200, 0.5);
+		$(".alertsTag").fadeTo(200,1);
+		$("#resTag").click(function(){
+			$("#overlay").fadeOut(200);
+			$(".alertsTag").fadeOut(200);
+		});
+		$("#subTag").click(function(){
+			$("#overlay").fadeOut(200);
+			$(".alertsTag").fadeOut(200);
+			var tagVal=$("#tag").val();
+			$.post("/123xxxadmin/uptag",{id:$("#tagid").val(),tag:tagVal});
+		});
+		$("#tag").val('');
+	}
+	function compaignBut(){
+		var ismusician_text = $(this).text();
+		var id=$(this).attr("workid");
+		if(ismusician_text=='LabX推荐(OUT)'){
+			var is_musician=0;
+			var spantext="LabX推荐(IN)";
+			var comptime=null;
+			var price=null;
+			$.post("/123xxxadmin/iscompshow",{id:id,is_compshow:is_musician,comptime:comptime,price:price});
+			$(this).text(spantext);
+		}else{
+			var is_musician=1;
+			var spantext="LabX推荐(OUT)";
+			$("#compid").val($(this).attr("workid"));
+			$("#overlay").height(document.body.scrollHeight);
+			$("#overlay").width(document.body.scrollWidth);
+			$("#overlay").fadeTo(200, 0.5);
+			$(".alertsComp").fadeTo(200,1);
+			$("#subComp").click(function(){
+				$("#overlay").fadeOut(200);
+				$(".alertsComp").fadeOut(200);
+				var comptime=$("#comptime").val();
+				var price=$("#price").val();
+				$.post("/123xxxadmin/iscompshow",{id:$("#compid").val(),is_compshow:1,comptime:comptime,price:price},function(data){if(data==1){$("#comptime").val('');$("#price").val('');return;}});
+			});
+			$(this).text(spantext);
+		}
+		
+	}
+
+	
+	function compaigntypeBut(){
+		var ismusician_text = $(this).text();
+		var id=$(this).attr("workid");
+		if(ismusician_text=='LabX分类推荐(OUT)'){
+			var is_musician=0;
+			var spantext="LabX分类推荐(IN)";
+			$.post("/123xxxadmin/iscompshowtype",{id:id,is_compshowtype:is_musician});
+			$(this).text(spantext);
+		}else{
+			var is_musician=1;
+			var spantext="LabX分类推荐(OUT)";
+			$.post("/123xxxadmin/iscompshowtype",{id:id,is_compshowtype:1});
+			
+			// $("#compid").val($(this).attr("workid"));
+			// $("#overlay").height(document.body.scrollHeight);
+			// $("#overlay").width(document.body.scrollWidth);
+			// $("#overlay").fadeTo(200, 0.5);
+			// $(".alertsComp").fadeTo(200,1);
+			// $("#subComp").click(function(){
+			// 	$("#overlay").fadeOut(200);
+			// 	$(".alertsComp").fadeOut(200);
+			// 	$.post("/123xxxadmin/iscompshowtype",{id:$("#compid").val(),is_compshowtype:1},function(data){if(data==1){$("#comptime").val('');$("#price").val('');return;}});
+			// });
+			$(this).text(spantext);
+		}
+		
+	}
+
+	function pushBut(){
+		var id=$(this).attr("workid");
+		$("#pushid").val($(this).attr("workid"));
+		$("#overlay").height(document.body.scrollHeight);
+		$("#overlay").width(document.body.scrollWidth);
+		$("#overlay").fadeTo(200, 0.5);
+		$(".alertPush").fadeTo(200,1);
+		$("#resPush").click(function(){
+			$("#overlay").fadeOut(200);
+			$(".alertPush").fadeOut(200);
+		});
+		$("#subPush").click(function(){
+			$("#overlay").fadeOut(200);
+			$(".alertPush").fadeOut(200);
+			var pushcontent=$("#pushcontent").val();
+			if(pushcontent!=""){
+				$.post("/123xxxadmin/workpush",{id:$("#pushid").val(),content:pushcontent},function(data){if(data==1){$("#pushcontent").val('');return;}});
+			}
+		});
+	}
+	
+	function del_confirm(i)
+	{
+		var r=confirm('你确定要删除这个作品吗？');
+		if (r==true)
+	  {
+	  	location.href="/123xxxadmin/delopus?id="+i;
+	  }
+	}
+	function recommendBut(){
+		var isrecommend_text = $(this).text();
+		$.get("/123xxxadmin/getreason?id="+$(this).attr("id"),function(reason){$("#reason").val(reason);});
+		if(isrecommend_text=='取消推荐'){
+			reason=$("#reason").val();
+			var id=$(this).attr("id");
+			var is_recommend=0;
+			var spantext="首页推荐";
+			//$(this).recommendFun(id,is_recommend,reason);$(this).text(spantext);
+			$.post("/123xxxadmin/isrecommend",{id:id,is_recommend:is_recommend,reason:reason});
+			$("#"+id).text(spantext);
+		}else {
+			var is_recommend=1;
+			
+			$("#overlay").height(document.body.scrollHeight);
+			$("#overlay").width(document.body.scrollWidth);
+			
+			$("#resid").val($(this).attr("id"));
+			$("#overlay").fadeTo(200, 0.5);
+			$(".alerts").fadeTo(200,1);
+			$("#resButon").click(function(){$("#overlay").fadeOut(200);$(".alerts").fadeOut(200);});
+			$("#subButon").click(function(){
+				var resid=$("#resid").val();
+				var reason=$("#reason").val();
+				//$("#"+id).recommendFun(id,is_recommend,reason);
+				$.post("/123xxxadmin/isrecommend",{id:resid,is_recommend:is_recommend,reason:reason});
+				$("#"+resid).text("取消推荐");
+				$("#overlay").fadeOut(200);
+				$(".alerts").fadeOut(200);
+				
+			});
+		}
+	}
+	function musicianBut(){
+		var ismusician_text = $(this).text();
+		var id=$(this).attr("workid");
+		if(ismusician_text=='音乐人曲目(OUT)'){
+			var is_musician=0;
+			var spantext="音乐人曲目(IN)";
+		}else{
+			var is_musician=1;
+			var spantext="音乐人曲目(OUT)";
+		}
+		$.post("/123xxxadmin/ismusician",{id:id,is_musician:is_musician});
+		$(this).text(spantext);
+	}
+	function contentBut(){
+		var ismusician_text = $(this).text();
+		var id=$(this).attr("workid");
+		if(ismusician_text=='内容推荐(OUT)'){
+			var is_musician=0;
+			var spantext="内容推荐(IN)";
+		}else{
+			var is_musician=1;
+			var spantext="内容推荐(OUT)";
+		}
+		$.post("/123xxxadmin/iscontshow",{id:id,is_contshow:is_musician});
+		$(this).text(spantext);
+	}
+	
+</script>
+</body>
+</html>

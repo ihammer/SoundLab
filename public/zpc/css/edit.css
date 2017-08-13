@@ -1,0 +1,201 @@
+/*编辑页
+------------------------*/
+
+body {
+    background-attachment: fixed;
+}
+.half-background {
+    background-color: #ffffff;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+}
+.pill-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../images/pill_bg_2x.png") no-repeat 50% 60%;
+    background-size: 978px 430px;
+}
+.mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /*opacity: 0;*/
+}
+.footer {
+    color: #f7f7f8;
+}
+/**/
+
+.edit {
+    width: 816px;
+    margin-top: 100px;
+    /*margin-bottom: 40px;*/
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.speed-slider {
+    float: left;
+    width: 83px;
+    /*height: 523px;*/
+    /*background-color: rgba(255, 255, 255, .5);*/
+}
+.label {
+    width: 27px;
+    height: 523px;
+    float: left;
+}
+.label > p {
+    font-size: 16px;
+    margin: 74px 0;
+    margin-top: 52px;
+    margin-bottom: 85px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slider {
+    border: 2px solid #f7f7f8;
+    border-radius: 21px;
+    width: 42px;
+    height: 523px;
+    float: right;
+    position: relative;
+}
+.dot {
+    width: 21px;
+    height: 21px;
+    border: 2px solid #f7f7f8;
+    border-radius: 50%;
+    margin-top: 49px;
+    margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+.dot:hover {
+    background-color: #f7f7f8;
+}
+.thumb {
+    width: 48px;
+    height: 48px;
+    background-color: #f7f7f8;
+    border: 2px solid #f7f7f8;
+    border-radius: 50%;
+    position: absolute;
+    top: 238px;
+    left: -5px;
+}
+.show-box {
+    width: 522px;
+    margin-left: 58px;
+    float: left;
+}
+.stage {
+    width: 522px;
+    height: 522px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    /*background-image: url('../images/0a786b8aa53698a731e75215be67c710.jpg') no-repeat;*/
+    /*background-size: 524px 522px;*/
+}
+.controller {
+    width: 522px;
+    height: 40px;
+    margin-top: 5px;
+    /*background-color: rgba(255, 255, 255, .1);*/
+    position: relative;
+}
+.btns {
+    line-height: 40px;
+    position: absolute;
+    /*top: 10px;*/
+    display: block;
+}
+.btns:hover .icon {
+    color: #88b4b1;
+    /*background-color: #f7f7f8;*/
+}
+.wave-bar {
+    position: absolute;
+    left: 40px;
+    width: 480px;
+    cursor: pointer;
+}
+#waveform-canvas {
+    /*background-color: #ccc;*/
+}
+.time {
+    color: #999;
+    left: 40px;
+    position: relative;
+}
+
+.text-buttons{
+    position:relative;
+    display: inline;
+    left:345px;
+}
+
+.addText.hidden{
+    display: none;
+}
+.addText, .addComplete{
+    position: absolute;
+    color: #f7f7f8;
+    background-color: #000000;
+    padding: 3px 15px;
+    float: right;
+    font-size: 20px;
+    border: 1px solid #f7f7f8;
+    border-radius: 0;
+}
+.addText:hover, .addComplete:hover {
+    color: #000;
+    background-color: #f7f7f8;
+}
+.addText:hover .icon-editText, .addComplete:hover .icon-editText {
+    color: #000;
+}
+.filter {
+    float: left;
+    width: 104px;
+    height: 522px;
+    margin-left: 49px;
+    border: 2px dashed #ccc;
+}
+.filter-thumbnail {
+    width: 94px;
+    height: 94px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+    margin-bottom: 9px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*.footer {
+    color: #999;
+    margin-top: 40px;
+    bottom: 20px;
+}*/
+/*icon
+-------------*/
+
+.icon {
+    font-size: 30px;
+    display: inline-block;
+    color: #f7f7f8;
+    cursor: pointer;
+}
+.icon-play, .icon-pause {
+    display: none;
+}
+.active {
+    display: inline-block;
+}
+.icon-editText {
+    font-size: 24px;
+}
